@@ -1,8 +1,23 @@
 #TEAM PROJ
 
-Team Members:
+###The Problem
 
-*Ben Battle
-*Tafari Duncan
-*Param Chopra
-*Jason Fan
+###The Solutions
+
+###Features:
+* example...
+
+###Data
+
+###Algorithms
+
+###Mockup/wireframe
+
+###Team Members:
+
+* Ben Battle
+* Tafari Duncan
+* Param Chopra
+* Jason Fan
+
+
