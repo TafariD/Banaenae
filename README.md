@@ -11,7 +11,7 @@
 * Front-end framework
 * Graphs and charts available as a tool to analyze rankings
 * Email/push notifications when your suggestions receive upvotes and when your favorite food will be offered
-* Geolocation
+* Data scraping
 * Main page refreshed daily that lists all items available for the day using up and down vote system
 * All-time page that lists all-time popular daily items based on cumulative number of upvotes from daily section
 * User suggestions section featuring food item recommendations written by users using up and down vote system
