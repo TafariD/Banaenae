@@ -30,3 +30,7 @@
 * Tafari Duncan
 * Param Chopra
 * Jason Fan
+
+
+###Wireframe:
+![Wireframe mockup](FB_wireframe.png)
