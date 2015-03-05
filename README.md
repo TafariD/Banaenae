@@ -8,8 +8,8 @@
 
 ###Features:
 * Server-side persistent data that is the storage of rankings from up and down votes.  Also stores user's favorite foods based on foods they have 			upvoted multiple times.
-* Front-end framework
-* Graphs and charts available as a tool to analyze rankings
+* Front-end framework (Bootstrap)
+* Graphs and charts showing most upvoted/favourited/served items
 * Email/push notifications when your suggestions receive upvotes and when your favorite food will be offered
 * Data scraping
 * Main page refreshed daily that lists all items available for the day using up and down vote system
