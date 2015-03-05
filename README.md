@@ -1,6 +1,8 @@
 #TEAM PROJ
 
-Ben Battle
-Tafari Duncan
-Param Chopra
-Jason Fan
+Team Members:
+
+*Ben Battle
+*Tafari Duncan
+*Param Chopra
+*Jason Fan
