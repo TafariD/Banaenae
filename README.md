@@ -22,8 +22,6 @@
 ###Algorithms
 * We will formulate an algorithm that determines the time-frame that user suggestions will remain visible in their section
 
-###Mockup/wireframe
-
 ###Team Members:
 
 * Ben Battle
