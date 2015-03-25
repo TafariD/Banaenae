@@ -11,6 +11,7 @@
 * Front-end framework (Bootstrap)
 * Graphs and charts showing most upvoted/favourited/served items
 * Data scraping - obtaining daily menus from Tufts Dining site
+* Geolocation - Site only available within Tufts Campus
 * Main page refreshed daily that lists all items available for the day using up and down vote system
 * All-time page that lists all-time popular daily items based on cumulative number of upvotes from daily section
 * ~~User suggestions section featuring food item recommendations written by users using up and down vote system~~
