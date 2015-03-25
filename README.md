@@ -21,7 +21,7 @@
 * Server-side persistent data that is the storage of rankings from up and down votes.  ~~Also stores user's favorite foods based on foods they have upvoted multiple times.~~
 
 ###Algorithms
-* We will formulate an algorithm that determines the time-frame that user suggestions will remain visible in their section
+* ~~We will formulate an algorithm that determines the time-frame that user suggestions will remain visible in their section~~
 
 ###Team Members:
 
