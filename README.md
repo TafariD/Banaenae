@@ -33,12 +33,9 @@
 
 
 ###Wireframe:
-![Wireframe mockup](FB_wireframe.png)
+![Wireframe mockup](prosal/FB_wireframe.png)
 
 #Comments by Ming
 1. "Data scraping" --scrape what?  Be VERY careful --this will get ugly real fast
 2. WAY too ambitious.  Lots of features.  You will be lucky to implement 2 or 3 or them well.
 3. Overall score: 13 / 15
-
-####TEST to relink readme:
-![Project Proposal](proposal/README.md)
