@@ -18,7 +18,8 @@ def getFoodNames(url):
     return food_dict
 
 def updateAllTime(daily_dict):
-    with open ("alltime.json", "r") as f:
+    alltime = {}
+    with open ("alltime.json") as f:
             alltime = json.load(f)
             for item in daily_dict:
                 if (item in alltime):
@@ -37,7 +38,7 @@ def main():
     daily_dict = {}
     with open ("daily_all.json") as f:
         daily_dict = json.load(f)
-
+    print("that worked")
     alltime = updateAllTime(daily_dict)    
     with open ("alltime.json","w") as f:
         json.dump(alltime, f, sort_keys = True, indent = 4, ensure_ascii = False)
