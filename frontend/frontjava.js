@@ -31,8 +31,10 @@ function myFunction(input) {
 
 function getdata(){
 
-  $.getJSON("food_scores.json", function(json) { //code based off of Stack Overflow version:
-                                          //http://stackoverflow.com/questions/7346563/loading-local-json-file
+  $.getJSON("food_scores.json", function(data) { //code based off of Stack Overflow version:
+    $.each( data, function (key, val) {
+    $('#data').append("<p>" + key + val.toString() + "</p>")
+    });                                      //http://stackoverflow.com/questions/7346563/loading-local-json-file
   console.log(json); // this will show the info it in firebug console
 
   });
