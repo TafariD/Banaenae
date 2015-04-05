@@ -1,0 +1,4 @@
+Jason's log
+
+3/28/15 - Jason and Ben:
+    Built python scraper for longmenu using beautiful soup
