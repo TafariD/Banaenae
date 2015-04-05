@@ -29,11 +29,11 @@ function myFunction(input) {
     document.getElementById("data").innerHTML = out;
 }
 
-function getJSON(){
+function getdata(){
+
   $.getJSON("food_scores.json", function(json) { //code based off of Stack Overflow version:
                                           //http://stackoverflow.com/questions/7346563/loading-local-json-file
   console.log(json); // this will show the info it in firebug console
-
 
   });
 }
