@@ -18,3 +18,7 @@ function myFunction(input) {
     }
     document.getElementById("data").innerHTML = out;
 }
+
+function getJSON(){
+    // use $.getJSON method on jquery instead
+}
