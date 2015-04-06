@@ -1,14 +1,14 @@
 [
-    {"Foodname": "1% Milk", "Score" : 0},
-    {"Foodname": "VM Scrambled Eggs", "Score" : 0},
-    {"Foodname": "Vanilla Soft Serve", "Score" : 0},
-    {"Foodname": "Vegan No Dairy Cheese Pizza", "Score" : 0},
-    {"Foodname": "White Hamburger Roll", "Score" : 0},
-    {"Foodname": "Whole Eggs", "Score" : 0},
-    {"Foodname": "Whole Milk", "Score" : 0},
-    {"Foodname": "Whole Wheat Bread", "Score" : 0},
-    {"Foodname": "Whole Wheat Cheese Pizza", "Score" : 0},
-    {"Foodname": "Whole Wheat English Muffin", "Score" : 0},
-    {"Foodname": "Yellow American Cheese", "Score" : 0},
-    {"Foodname": "Yellow Delicious Apples", "Score" : 0}
+    {"name": "1% Milk", "score" : 0},
+    {"name": "VM Scrambled Eggs", "score" : 0},
+    {"name": "Vanilla Soft Serve", "score" : 0},
+    {"name": "Vegan No Dairy Cheese Pizza", "score" : 0},
+    {"name": "White Hamburger Roll", "score" : 0},
+    {"name": "Whole Eggs", "score" : 0},
+    {"name": "Whole Milk", "score" : 0},
+    {"name": "Whole Wheat Bread", "score" : 0},
+    {"name": "Whole Wheat Cheese Pizza", "score" : 0},
+    {"name": "Whole Wheat English Muffin", "score" : 0},
+    {"name": "Yellow American Cheese", "score" : 0},
+    {"name": "Yellow Delicious Apples", "score" : 0}
 ]
