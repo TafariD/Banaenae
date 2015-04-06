@@ -9,13 +9,13 @@ base_url = 'http://menus.tufts.edu/foodpro/longmenu.asp?sName=TUFTS+DINING&locat
 
 #return dictionary containting all foodnames as keys with 0s as vals (for daily)
 def getFoodNames(url):
-    food_dict = {}
+    food_list = {}
     html = urllib.request.urlopen(url).read()
     soup = BeautifulSoup(html)
     data = soup.find_all("div", "longmenucoldispname")#.string
     for div in data:
         food_dict[div.string] = 0 
-    return food_dict
+    return food_list
 
 def updateAllTime(daily_dict):
     alltime = {}
