@@ -1,9 +1,17 @@
 {
-  "version" : "0.1.2",
+  "version": "0.1.2",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "express": "~4.9.x"
   },
   "engines": {
     "node": "0.10.x"
-  }
+  },
+  "name": "dummy_server",
+  "main": "index.js",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
 }
