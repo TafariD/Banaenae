@@ -8,3 +8,8 @@ function getdata(){
 
   });
 }
+
+
+// TODO -- Getting arrow pictures for each topic onto list.
+/*IDEA -- Place each item in a Div
+*/
