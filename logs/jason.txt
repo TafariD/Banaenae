@@ -2,3 +2,12 @@ Jason's log
 
 3/28/15 - Jason and Ben:
     Built python scraper for longmenu using beautiful soup
+4/4/15 - Whole team session:
+    Design discussion + reformat JSONS
+    	Decisions:
+		- Server sends plain key val pairs as json
+		- Client side sorts scores
+		- At end of user session/refresh - browser posts lists of upped
+		  and downed items to server
+4/9/15 - Jason and Tafari:
+    Installed and set up bootstrap for the first time, learnt about cols
