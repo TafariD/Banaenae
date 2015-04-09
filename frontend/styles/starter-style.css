@@ -6,8 +6,12 @@ body {
   padding: 40px 15px;
   text-align: left;
 }
+.lead {
+	padding-left: 45px;
+	padding-right: 0px;
+}
 
 [class*="col-"] {
-	padding-top: 15px;
-	padding-bottom: 15px;
+	padding-top: 0px;
+	padding-bottom: 0px;
 }
