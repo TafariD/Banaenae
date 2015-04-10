@@ -11,9 +11,13 @@ app.get('/', function(request, response) {
 	response.send(dict);
 });
 
-app.get('/list',function(request,response) {
-	res.header("Access-Control-Allow-Origin", "*");
-  	res.header("Access-Control-Allow-Headers", "X-Requested-With");
+app.all('/list', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
+
+app.get('/list',function(request,response,next) {
 	response.send(list);
 });
 
