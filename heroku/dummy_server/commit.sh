@@ -21,7 +21,7 @@ if [ "$1" =  "-commit" ];then
     #git pull
 	git add *
 	git commit -m "$COMMITMESSAGE"
-	git push origin master
+	git push heroku master
 
 cd $GROUP_PROJECT
 
