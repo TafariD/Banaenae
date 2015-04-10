@@ -11,7 +11,7 @@ app.get('/', function(request, response) {
 	response.send(dict);
 });
 
-app.all('/', function(req, res, next) {
+app.all('/list', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
   next();
