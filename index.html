@@ -23,6 +23,10 @@
     <!-- Bootstrap core CSS -->
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="frontend/styles/cover.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- allow sql injection HAHAHAHA -->
+
+
   </head>
 
   <body>
@@ -46,6 +50,8 @@
             <h1 class="cover-heading">Welcome to FoodBack!</h1>
             <p class="lead">Click below for more...</p>
             <p class="lead">
+              <input type="text" class="form-control" placeholder="DO NOT TYPE IMPORTANT INFORMATION HERE... (SQL injection for funsies)" aria-describedby="basic-addon1">
+              <div id="inject"></div>c
               <a href="frontend/front.html" class="btn btn-lg btn-default">Enter</a>
             </p>
           </div>
