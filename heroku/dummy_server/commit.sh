@@ -22,7 +22,7 @@ if [ "$1" =  "-commit"  -o "$1" = "-push" ];then
 	git add *
 	git commit -m "$COMMITMESSAGE"
 
-	if [ "$1" = "-push"];then
+	if [ "$1" = "-push" ];then
 		git push heroku master
 	fi
 
