@@ -10,4 +10,9 @@ Jason's log
 		- At end of user session/refresh - browser posts lists of upped
 		  and downed items to server
 4/9/15 - Jason and Tafari:
-    Installed and set up bootstrap for the first time, learnt about cols
+    	Installed and set up bootstrap for the first time, learnt about cols
+	- Jason and Param:
+	Built sort functions
+	- Other:
+	Built dummy server now hosted on heroku, tyler's commit script is
+	awesome
