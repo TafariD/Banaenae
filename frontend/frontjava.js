@@ -1,5 +1,5 @@
 function getdata(){
-    $.getJSON("food_scores2.json", function(jdata) { //code based off of stackoverflow.com/questions/7346563/loading-local-json-file:
+    $.getJSON("https://fast-coast-3052.herokuapp.com/list", function(jdata) { //code based off of stackoverflow.com/questions/7346563/loading-local-json-file:
     
     /* //LOCAL DEBUG CODE - simulating get form server 
     jdata = [
@@ -17,6 +17,7 @@ function getdata(){
 			    {"name": "Yellow Delicious Apples", "score" : 0}
 			];
 	*/
+		console.log(jdata)
 
 	    $.each( jdata, function (i, food_obj) {
 
