@@ -16,6 +16,7 @@ if [ "$1" =  "-commit" ];then
 
 
 	cd $HEROKU_APP
+	pwd
 
     #git pull
 	git add *
