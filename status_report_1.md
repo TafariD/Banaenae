@@ -8,8 +8,8 @@
 * Made plans for how client and servers interact
 
 ###Challenges and issues we have faced
-* It's been difficult to get everyone in one place, but we have a good skeleton of the site up, so now we can better distribute the work
-* Scraper is written in python and it may be better to re-write it in javascript, and host it on the same server that deals with client requests.
+* It's been difficult to get everyone in one place, but we have a good skeleton of the site up. Hopefully, we can now better distribute the work
+* Scraper is written in python and it may be better to re-write it in javascript, and host it on the same server that deals with client requests
 * Bootstrap has been difficult to understand initially
 
 ### Goals for the next week
