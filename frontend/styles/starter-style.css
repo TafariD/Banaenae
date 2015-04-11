@@ -6,6 +6,13 @@ body {
   padding: 40px 15px;
   text-align: left;
 }
+.left {
+	padding-top: 25%;
+	padding-bottom: 25%;
+}
+.right {
+	float: right;
+}
 .lead {
 	padding-left: 45px;
 	padding-right: 0px;
@@ -14,4 +21,14 @@ body {
 [class*="col-"] {
 	padding-top: 0px;
 	padding-bottom: 0px;
+}
+.left {
+	text-align: left;
+	padding-top: 45px;
+	padding-bottom: 20px;
+}
+
+.row {
+	border-bottom-style: ridge;
+	border-bottom-color: light grey;
 }
