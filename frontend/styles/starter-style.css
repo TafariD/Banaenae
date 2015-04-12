@@ -4,13 +4,12 @@ body {
   overflow: hidden;
 
 }
+/*
 .starter-template {
   padding: 40px 15px;
   text-align: left;
-}
-.sidebar{
-   float: left;
-}
+}*/
+
 .lead {
 	padding-left: 45px;
 	padding-right: 0px;
@@ -21,14 +20,8 @@ body {
 	padding-bottom: 0px;
 }
 
-.content{
-	float:bottom;
-	position:fixed;
-	height: 100vh;
-}
-
 .foodbox{
-	overflow: scroll;
+	overflow-y: scroll;
 	overflow-x: hidden;
 	height: 70vh;
 }
@@ -37,14 +30,8 @@ body {
 	border-bottom-color: light grey;
 }
 
-
 .left {
 	text-align: left;
 	padding-top: 45px;
 	padding-bottom: 20px;
-}
-
-.row {
-	padding-bottom: 0px;
-
 }
