@@ -17,7 +17,7 @@ function renderList(list){
         $('#data').append(
             "<div class='row food-item-box'>" +
             "<div class='col-xs-8 left' > <p class='fooditem'>" + food_obj.name + "</p> </div>" +
-            "<div class='col-xs-4 scores+buttons'> "
+            "<div class='col-xs-4 scores-buttons'> "
                     + "<div class='col-xs-12'> <span class='glyphicon glyphicon-menu-up'></span></div>"
                     + "<div class='col-xs-12'> <p class='foodscore'>" + food_obj.score.toString() + "</p></div>"
                     + "<div class='col-xs-12'> <span class='glyphicon glyphicon-menu-down'></span></div> </div>" +

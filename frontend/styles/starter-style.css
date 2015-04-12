@@ -25,6 +25,9 @@ body {
 	overflow-x: hidden;
 	height: 70vh;
 }
+.scores-buttons{
+	text-align: center;
+}
 .food-item-box{
 	border-bottom-style: ridge;
 	border-bottom-color: light grey;
