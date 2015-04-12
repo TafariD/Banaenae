@@ -16,3 +16,6 @@ Jason's log
 	- Other:
 	Built dummy server now hosted on heroku, tyler's commit script is
 	awesome
+
+4/12/15 - Ben and Jason
+	- Changed page layout, scroll boxes, glyphs etc.
