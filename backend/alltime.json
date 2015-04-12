@@ -1,1 +1,614 @@
-{}
+[
+    {
+        "name": "Whole Milk",
+        "score": 0
+    },
+    {
+        "name": "Honey Mustard Dressing",
+        "score": 0
+    },
+    {
+        "name": "Cake Cone",
+        "score": 0
+    },
+    {
+        "name": "Balsamic Vinegar Dressing Fat Free",
+        "score": 0
+    },
+    {
+        "name": "Raisin Bran",
+        "score": 0
+    },
+    {
+        "name": "SB Organic Edamame",
+        "score": 0
+    },
+    {
+        "name": "VM Scrambled Eggs",
+        "score": 0
+    },
+    {
+        "name": "1% Milk",
+        "score": 0
+    },
+    {
+        "name": "Garbanzo Beans",
+        "score": 0
+    },
+    {
+        "name": "Lowfat Chocolate Milk",
+        "score": 0
+    },
+    {
+        "name": "Grape Jelly",
+        "score": 0
+    },
+    {
+        "name": "Silk Soy Vanilla Milk",
+        "score": 0
+    },
+    {
+        "name": "Corn Pops",
+        "score": 0
+    },
+    {
+        "name": "Soy Milk",
+        "score": 0
+    },
+    {
+        "name": "Butterscotch Pudding",
+        "score": 0
+    },
+    {
+        "name": "Tropical Fruit Salad",
+        "score": 0
+    },
+    {
+        "name": "Broccoli Florettes",
+        "score": 0
+    },
+    {
+        "name": "Apple Juice",
+        "score": 0
+    },
+    {
+        "name": "Shredded Carrots",
+        "score": 0
+    },
+    {
+        "name": "Chunky Chicken Salad",
+        "score": 0
+    },
+    {
+        "name": "Vegan No Dairy Cheese Pizza",
+        "score": 0
+    },
+    {
+        "name": "Whole Eggs",
+        "score": 0
+    },
+    {
+        "name": "Sliced Muenster Cheese",
+        "score": 0
+    },
+    {
+        "name": "Sliced Provolone Cheese",
+        "score": 0
+    },
+    {
+        "name": "VG Split Pea Soup",
+        "score": 0
+    },
+    {
+        "name": "Orange Marmalade",
+        "score": 0
+    },
+    {
+        "name": "Feta Cheese",
+        "score": 0
+    },
+    {
+        "name": "Grilled Chicken Breast",
+        "score": 0
+    },
+    {
+        "name": "Cauliflower Florettes",
+        "score": 0
+    },
+    {
+        "name": "Fresh Oranges",
+        "score": 0
+    },
+    {
+        "name": "Celery Sticks",
+        "score": 0
+    },
+    {
+        "name": "Chow Mein Noodles",
+        "score": 0
+    },
+    {
+        "name": "White Hamburger Roll",
+        "score": 0
+    },
+    {
+        "name": "Baby Carrots",
+        "score": 0
+    },
+    {
+        "name": "LoFat Cottage Cheese",
+        "score": 0
+    },
+    {
+        "name": "Unsalted Sunflower Seeds",
+        "score": 0
+    },
+    {
+        "name": "Cold Elbow Macaroni",
+        "score": 0
+    },
+    {
+        "name": "Shredded Chicken",
+        "score": 0
+    },
+    {
+        "name": "Chocolate Low Fat Soft Serve Ice Cream",
+        "score": 0
+    },
+    {
+        "name": "Cranberry Juice",
+        "score": 0
+    },
+    {
+        "name": "Spinach",
+        "score": 0
+    },
+    {
+        "name": "Julienne Green Pepper",
+        "score": 0
+    },
+    {
+        "name": "Seasoned Croutons",
+        "score": 0
+    },
+    {
+        "name": "Hard Cooked Eggs",
+        "score": 0
+    },
+    {
+        "name": "Ultimate Chocolate Cheese Cake",
+        "score": 0
+    },
+    {
+        "name": "Plain Tofu",
+        "score": 0
+    },
+    {
+        "name": "VG Organic Brown Rice",
+        "score": 0
+    },
+    {
+        "name": "Hazelnut Spread",
+        "score": 0
+    },
+    {
+        "name": "Dijon Mustard",
+        "score": 0
+    },
+    {
+        "name": "Lowfat Mayonnaise",
+        "score": 0
+    },
+    {
+        "name": "Artichoke Hearts",
+        "score": 0
+    },
+    {
+        "name": "Mayonnaise",
+        "score": 0
+    },
+    {
+        "name": "Brocolli, Cauliflour & Carrots",
+        "score": 0
+    },
+    {
+        "name": "Orange Juice",
+        "score": 0
+    },
+    {
+        "name": "Deli Sliced Corned Beef",
+        "score": 0
+    },
+    {
+        "name": "Skim Milk",
+        "score": 0
+    },
+    {
+        "name": "Hot Chocolate",
+        "score": 0
+    },
+    {
+        "name": "Frosted Mini Wheats",
+        "score": 0
+    },
+    {
+        "name": "VG Organic Black Beans",
+        "score": 0
+    },
+    {
+        "name": "Belgian Waffles",
+        "score": 0
+    },
+    {
+        "name": "Chopped Romaine Lettuce",
+        "score": 0
+    },
+    {
+        "name": "Pepperoncini",
+        "score": 0
+    },
+    {
+        "name": "Pitted Black Olives",
+        "score": 0
+    },
+    {
+        "name": "Pesto Sauce",
+        "score": 0
+    },
+    {
+        "name": "Vanilla Soft Serve",
+        "score": 0
+    },
+    {
+        "name": "Macintosh Apples",
+        "score": 0
+    },
+    {
+        "name": "Kidney Beans",
+        "score": 0
+    },
+    {
+        "name": "Bartlett Pears",
+        "score": 0
+    },
+    {
+        "name": "VG Chickpea Vindaloo",
+        "score": 0
+    },
+    {
+        "name": "Light Olive Oil Vinaigrette Dressing",
+        "score": 0
+    },
+    {
+        "name": "Thick N Chunky Mild Salsa",
+        "score": 0
+    },
+    {
+        "name": "Lactaid Milk",
+        "score": 0
+    },
+    {
+        "name": "PC Butter Reddies",
+        "score": 0
+    },
+    {
+        "name": "Raspberry Lime Vinaigrette",
+        "score": 0
+    },
+    {
+        "name": "Blue Cheese Dressing",
+        "score": 0
+    },
+    {
+        "name": "Olive Oil",
+        "score": 0
+    },
+    {
+        "name": "Deli Sliced Turkey",
+        "score": 0
+    },
+    {
+        "name": "Beer Battered Onion Rings",
+        "score": 0
+    },
+    {
+        "name": "Yellow American Cheese",
+        "score": 0
+    },
+    {
+        "name": "Cheese Pizza",
+        "score": 0
+    },
+    {
+        "name": "Whole Wheat Cheese Pizza",
+        "score": 0
+    },
+    {
+        "name": "Organic LF Raspberry Granola",
+        "score": 0
+    },
+    {
+        "name": "Raisins",
+        "score": 0
+    },
+    {
+        "name": "Dill Pickle Spears",
+        "score": 0
+    },
+    {
+        "name": "Egg Salad",
+        "score": 0
+    },
+    {
+        "name": "Peanut Butter",
+        "score": 0
+    },
+    {
+        "name": "Rice Milk",
+        "score": 0
+    },
+    {
+        "name": "Whole Wheat English Muffin",
+        "score": 0
+    },
+    {
+        "name": "SB Vegan Asian Teriyaki Tofu",
+        "score": 0
+    },
+    {
+        "name": "Mini Marshmallows",
+        "score": 0
+    },
+    {
+        "name": "Crackers",
+        "score": 0
+    },
+    {
+        "name": "Grilled Hamburger",
+        "score": 0
+    },
+    {
+        "name": "Silk Soy Chocolate Milk",
+        "score": 0
+    },
+    {
+        "name": "Sliced Pears",
+        "score": 0
+    },
+    {
+        "name": "Fresh Sliced Mushrooms",
+        "score": 0
+    },
+    {
+        "name": "Whole Wheat Bread",
+        "score": 0
+    },
+    {
+        "name": "Smart Start",
+        "score": 0
+    },
+    {
+        "name": "Fresh Bananas",
+        "score": 0
+    },
+    {
+        "name": "Grape Nuts",
+        "score": 0
+    },
+    {
+        "name": "Frosted Flakes",
+        "score": 0
+    },
+    {
+        "name": "Unsliced Italian Bread",
+        "score": 0
+    },
+    {
+        "name": "Sun Dried Tomato Dressing",
+        "score": 0
+    },
+    {
+        "name": "Ketchup",
+        "score": 0
+    },
+    {
+        "name": "Sliced Red Onions",
+        "score": 0
+    },
+    {
+        "name": "Cinnamon Toast Crunch",
+        "score": 0
+    },
+    {
+        "name": "English Muffins",
+        "score": 0
+    },
+    {
+        "name": "Classic Greek Dressing",
+        "score": 0
+    },
+    {
+        "name": "Cut Corn",
+        "score": 0
+    },
+    {
+        "name": "Craisins",
+        "score": 0
+    },
+    {
+        "name": "SB Crumbled Bleu Cheese",
+        "score": 0
+    },
+    {
+        "name": "Tuna Salad",
+        "score": 0
+    },
+    {
+        "name": "VM Garden Burger",
+        "score": 0
+    },
+    {
+        "name": "Kashi Good Friends Cereal",
+        "score": 0
+    },
+    {
+        "name": "VG Quinoa & Spring Vegetable Pilaf",
+        "score": 0
+    },
+    {
+        "name": "Mesclun Spring Mix",
+        "score": 0
+    },
+    {
+        "name": "Fresh Zucchini",
+        "score": 0
+    },
+    {
+        "name": "Lucky Charms",
+        "score": 0
+    },
+    {
+        "name": "Regular Soda",
+        "score": 0
+    },
+    {
+        "name": "Strawberry Jelly",
+        "score": 0
+    },
+    {
+        "name": "Froot Loops",
+        "score": 0
+    },
+    {
+        "name": "Flaked Tuna",
+        "score": 0
+    },
+    {
+        "name": "Cracklin Bran",
+        "score": 0
+    },
+    {
+        "name": "Ranch Dressing",
+        "score": 0
+    },
+    {
+        "name": "Dijon Vinaigrette Dressing",
+        "score": 0
+    },
+    {
+        "name": "Grapefruit Sections",
+        "score": 0
+    },
+    {
+        "name": "Mild Yellow Shredded Cheddar",
+        "score": 0
+    },
+    {
+        "name": "Yellow Delicious Apples",
+        "score": 0
+    },
+    {
+        "name": "Gorilla Munch",
+        "score": 0
+    },
+    {
+        "name": "Apple Jacks",
+        "score": 0
+    },
+    {
+        "name": "Club White Bread",
+        "score": 0
+    },
+    {
+        "name": "Cheerios",
+        "score": 0
+    },
+    {
+        "name": "Deli Sliced Roast Beef",
+        "score": 0
+    },
+    {
+        "name": "No Cholesterol Egg White",
+        "score": 0
+    },
+    {
+        "name": "Thousand Island Dressing",
+        "score": 0
+    },
+    {
+        "name": "Grape Juice",
+        "score": 0
+    },
+    {
+        "name": "Sliced Swiss Cheese",
+        "score": 0
+    },
+    {
+        "name": "Honey",
+        "score": 0
+    },
+    {
+        "name": "VG Thai Burrito",
+        "score": 0
+    },
+    {
+        "name": "Diet Soda",
+        "score": 0
+    },
+    {
+        "name": "Creamy Caesar Dressing",
+        "score": 0
+    },
+    {
+        "name": "Grilled Cheeseburger",
+        "score": 0
+    },
+    {
+        "name": "Marshmallow Fluff",
+        "score": 0
+    },
+    {
+        "name": "Organic Hemp & Flax Granola",
+        "score": 0
+    },
+    {
+        "name": "Sliced Mild Cheddar Cheese",
+        "score": 0
+    },
+    {
+        "name": "Sliced Cucumbers 1/4\"",
+        "score": 0
+    },
+    {
+        "name": "Garlic & Chive Roasted Hummus",
+        "score": 0
+    },
+    {
+        "name": "Light Italian Dressing",
+        "score": 0
+    },
+    {
+        "name": "Cap'N Crunch",
+        "score": 0
+    },
+    {
+        "name": "Balsamic Vinaigrette Dressing",
+        "score": 0
+    },
+    {
+        "name": "Organic Peanut Butter",
+        "score": 0
+    },
+    {
+        "name": "Apple Sauce",
+        "score": 0
+    },
+    {
+        "name": "Grape Tomatoes",
+        "score": 0
+    },
+    {
+        "name": "Chipolte Mayo",
+        "score": 0
+    }
+]
