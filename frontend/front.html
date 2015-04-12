@@ -20,7 +20,7 @@
   </head>
 
   <body onload="init()">
-
+    <div class="container">
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -30,7 +30,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">FoodBack</a>
+          <a class="navbar-brand" href="../index.html">FoodBack</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -42,20 +42,22 @@
       </div>
     </nav>
 
-    <div class="container">
+    <div class="container content">
       <div class="starter-template">
-      	<h1>What's trending</h1>
         <div class="lead row">
-        	<div class="col-md-2">
+          <div class="col-md-12 top">
+            <h1>What's trending</h1>
+          </div>
+        	<div class="col-md-2 sidebar">
         		<p> Left info space, sign in, account data etc.... </p>
         	</div>
-        	<div class="col-md-10">
+        	<div class="col-md-10 foodbox">
         		<div id="data"></div>
        		</div>
     	</div>
-      </div>
-
     </div><!-- /.container -->
+  </div>
+</div>
 
 
     <!-- Bootstrap core JavaScript

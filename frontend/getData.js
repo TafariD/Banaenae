@@ -15,7 +15,7 @@ function init(){
 function renderList(list){
         $.each(list, function (i, food_obj) {
         $('#data').append(
-            "<div class='row'>" +
+            "<div class='row food-item-box'>" +
             "<div class='col-xs-8 left' > <p class='fooditem'>" + food_obj.name + "</p> </div>" +
             "<div class='col-xs-4 right'> "
                     + "<div class='col-xs-12'> <p> ^ </p> </div>"

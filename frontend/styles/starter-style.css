@@ -1,17 +1,15 @@
 /* taken from bootstrap online examples*/
 body {
   padding-top: 50px;
+  overflow: hidden;
+
 }
 .starter-template {
   padding: 40px 15px;
   text-align: left;
 }
-.left {
-	padding-top: 25%;
-	padding-bottom: 25%;
-}
-.right {
-	float: right;
+.sidebar{
+   float: left;
 }
 .lead {
 	padding-left: 45px;
@@ -22,6 +20,24 @@ body {
 	padding-top: 0px;
 	padding-bottom: 0px;
 }
+
+.content{
+	float:bottom;
+	position:fixed;
+	height: 100vh;
+}
+
+.foodbox{
+	overflow: scroll;
+	overflow-x: hidden;
+	height: 70vh;
+}
+.food-item-box{
+	border-bottom-style: ridge;
+	border-bottom-color: light grey;
+}
+
+
 .left {
 	text-align: left;
 	padding-top: 45px;
@@ -29,6 +45,6 @@ body {
 }
 
 .row {
-	border-bottom-style: ridge;
-	border-bottom-color: light grey;
+	padding-bottom: 0px;
+
 }
