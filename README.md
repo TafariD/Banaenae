@@ -1,4 +1,7 @@
-#FOODBACK
+#BANAENAE
+
+###Acknowledgements
+* We would like to acknowledge Chris Sevilleja (@sevilayha) on scotch.io for his tutorial on authentication with Node.js
 
 ###The Problem
 * Tuft's dining needs a better way to receive feedback and suggestions for their menu.
