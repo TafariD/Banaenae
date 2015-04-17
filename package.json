@@ -1,0 +1,17 @@
+{
+  "name": "node-authentication",
+  "main": "server.js",
+  "dependencies" : {
+    "express" : "latest",           
+    "ejs" : "latest",  
+    "mongoose" : "latest"           ,           
+    "passport" : "latest",         
+    "passport-google-oauth" : "latest",
+    "body-parser": "latest",
+    "cookie-parser": "latest",
+    "method-override": "latest",
+    "bcrypt-nodejs" : "latest",
+    "express-session": "latest",
+    "ejs-locals": "latest"
+  }
+}

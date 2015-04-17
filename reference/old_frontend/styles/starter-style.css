@@ -1,0 +1,39 @@
+/* taken from bootstrap online examples*/
+body {
+  overflow: hidden;
+
+}
+/*
+.starter-template {
+  padding: 40px 15px;
+  text-align: left;
+}*/
+
+[class*="col-"] {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+.content {
+	padding-top: 50px;
+}
+.foodbox{
+	padding-left:5%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	height: 80vh;
+}
+.scores-buttons{
+	font-size: 18px;
+	text-align: center;
+}
+.food-item-box{
+	padding-right: 5%;
+	height:100px;
+	border-bottom-style: ridge;
+	border-bottom-color: light grey;
+}
+.fooditem{
+	padding-top: 10px;
+	vertical-align: middle;
+	text-align: left;
+}
