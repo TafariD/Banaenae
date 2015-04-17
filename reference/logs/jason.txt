@@ -19,3 +19,8 @@ Jason's log
 
 4/12/15 - Ben and Jason
 	- Changed page layout, scroll boxes, glyphs etc.
+
+4/16/15 - Jason
+    - Moved site onto Heroky ready / Node platform
+    - migrated HTML to .ejs templates
+    - Built google+ authentication

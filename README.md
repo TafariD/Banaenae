@@ -36,7 +36,7 @@
 
 
 ###Wireframe:
-![Wireframe mockup](proposal/FB_wireframe.png)
+![Wireframe mockup](reference/proposal/FB_wireframe.png)
 
 #Comments by Ming
 1. "Data scraping" --scrape what?  Be VERY careful --this will get ugly real fast
