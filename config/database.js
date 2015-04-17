@@ -1,3 +1,3 @@
 module.exports = {
-    'url' : process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/node_auth'
+    'url' : process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/banaenae'
 };

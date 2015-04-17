@@ -1,17 +1,14 @@
 // config/passport.js
+// Acknowledgements : Code modified from Chris Sevilleja's on Scotch.io
 
-// load all the things we need
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-// load up the user model
 var User            = require('../app/models/user');
 var configAuth = require ('./auth'); 
 
 // expose this function to our app using module.exports
 module.exports = function(passport) {
 
-    // =========================================================================
-    // passport session setup ==================================================
-    // =========================================================================
+    // passport session setup
     // required for persistent login sessions
     // passport needs ability to serialize and unserialize users out of session
 
@@ -25,18 +22,13 @@ module.exports = function(passport) {
             done(err, user);
         });
     });
-
-    // =========================================================================
-    // GOOGLE ==================================================================
-    // =========================================================================
+    // GOOGLE+ authentication 
     passport.use(new GoogleStrategy({
         clientID        : configAuth.googleAuth.clientID,
         clientSecret    : configAuth.googleAuth.clientSecret,
         callbackURL     : configAuth.googleAuth.callbackURL,
     },
     function(token, refreshToken, profile, done) {
-        // make the code asynchronous
-        // User.findOne won't fire until we have all our data back from Google
         process.nextTick(function() {
             // try to find the user based on their google id
             User.findOne({ 'google.id' : profile.id }, function(err, user) {
@@ -49,6 +41,8 @@ module.exports = function(passport) {
                     // if the user isnt in our database, create a new user
                     var newUser          = new User();
                     newUser.google.name  = profile.displayName;
+                    newUser.google.id    = profile.id
+                    newUser.score        = 0;
                     // save the user
                     newUser.save(function(err) {
                         if (err)
@@ -60,5 +54,4 @@ module.exports = function(passport) {
         });
 
     }));
-
 };
