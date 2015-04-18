@@ -22,3 +22,8 @@
 ### Long term goals, putting things into perspective...
 * Authentication and site membership, we need to find a way to do this, O.Auth2, Facebook, Google are some options we have thought about
 * Learn more bootstrap - we understand and have a good sense of what we need to do serverside, the front end is a different story...
+
+#Comments by Ming
+* Ask yourself, do you NEED to use Bootstrap? You don't have to, you know
+* "It's been difficult to get everyone in one place, but we have a good skeleton of the site up. Hopefully, we can now better distribute the work" --consider having a group Google Hangout or Skype call
+* "Scraper is written in python and it may be better to re-write it in javascript" --uh, why?
