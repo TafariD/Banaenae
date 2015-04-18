@@ -31,3 +31,4 @@
     * 1) so we can use node-scheduler or other cron like packages to run daily scraper on tufts dining menus
     * 2) We have few group members who use python, it's been hard to have everyone contribute
     * 3) to have everything in one place, we can schedule daily scrapes and can directly interact with our designed scheme on mongoose
+* Group communication - we are in constant communication through FaceBook, and we have outlined deliverables
