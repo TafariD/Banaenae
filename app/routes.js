@@ -17,11 +17,15 @@ module.exports = function(app, passport) {
        // var scores =    [{"name":"1% Milk","score":60},
          //            {"name":"VM Scrambled Eggs","score":15},{"name":"Vanilla Soft Serve","score":-10}];
         // TEST CODE
-        getScores(); //<---- grabs data from mongoDB
+        //getScores(); //<---- grabs data from mongoDB
+        res.render('displayitems.ejs', { user: req.user});
+    });
+
+    app.get('/daily', function(req, res) {
         var query = foodItem.find({"daily" : true});
         query.select("id name daily_score").sort({"daily_score":-1}).exec(function(err, docs){
-            res.render('displayitems.ejs', { user: req.user, foodScores : JSON.stringify(docs)});
-        });        
+            res.send(docs);
+        });
     });
 
     // For testing -  we can add foods via html post
@@ -38,6 +42,7 @@ module.exports = function(app, passport) {
         getScores();
         res.send(200);
     });
+
 
     // LOGOUT 
     app.get('/logout', function(req, res) {
