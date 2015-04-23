@@ -1,7 +1,7 @@
 // app/routes.js
 
 // Test code
-var foodItem            = require('../app/models/fooditem');
+var foodItem            = require('../app/models/foodItem');
 // Test code
 
 module.exports = function(app, passport) {
