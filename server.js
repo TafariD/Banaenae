@@ -8,8 +8,11 @@ var mongoose = require('mongoose');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
+var schedule = require('node-schedule');
+//var cheerio  = require('cheerio');
 //var path = require('path');
 var configDB = require('./config/database.js');
+
 
 // Connect to MongoDB via mongoose
 mongoose.connect(configDB.url);
@@ -28,7 +31,10 @@ app.set('view engine', 'ejs');
 app.use(session({secret: 'topsecrets', saveUninitialized: true, resave: true})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
+var schedule = require('node-schedule');
 
+//daily scraper
+//require('./app/scrape.js')(schedule, mongoose, cheerio);
 // routes
 require('./app/routes.js')(app, passport, mongoose, bodyParser); // load our routes and pass in our app and fully configured passport
 // launch ======================================================================
