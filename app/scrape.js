@@ -3,7 +3,7 @@
 var fs = require('fs');
 var request = require('request');
 var cheerio = require('cheerio');
-var foodItems = require('./models/foodItem')
+var foodItem = require('./models/foodItem')
 
 // app.get('/', function(req, res){
 //     url = 'http://menus.tufts.edu/foodpro/shortmenu.asp?sName=Tufts+Dining&locationNum=11&locationName=Dewick+MacPhie+Dining+Center&naFlag=1';
@@ -30,23 +30,38 @@ module.exports = function(schedule, mongoose) {
     // var j = schedule.scheduleJob(rule, function(){
     //     grabDailyItems();
     // });
+    var date = new Date(2015, 3, 24, 1, 6, 46);
+    console.log(date);
+    var j = schedule.scheduleJob(date, function(){
+        console.log('The world is going to end today.');
+        grabDailyItems();
+    });
 }
 // Returns a list of strings of daily items
 function grabDailyItems() {
-    string = "string";
+    console.log('in grabDailyItems');
     var url = 'http://menus.tufts.edu/foodpro/shortmenu.asp?sName=Tufts+Dining&locationNum=11&locationName=Dewick+MacPhie+Dining+Center&naFlag=1';
     request(url, function(error, response, html){
+        console.log('in request');
         if (!error) {
+            console.log('about to cheerio load');
             var $ = cheerio.load(html);
-            var fooditems = $(".shortmenurecipes").find("a");
-            var items = [];
-            $(fooditems).each(function(){
-                console.log("I've got all the items");
-                items.push($(this).text());
+            console.log('cheerio loaded')
+            var items = $(".shortmenurecipes").find("a");
+            //var items = [];
+            console.log('got items, now in forloop')
+            $(items).each(function(){
+                //console.log("I've got all the items");
+                console.log($(this).text())
+                itemToDB($(this).text());
+                //items.push($(this).text());
             });
-            console.log(items);
+            //console.log(items);
+        } else {
+            console.log('error in request');
         }
-    })
+    });
+    console.log('out of request');
 }
 
 function itemToDB(foodname) {
@@ -60,7 +75,7 @@ function itemToDB(foodname) {
             item.save();
         } else {
             var newItem         = new foodItem();
-            newItem.foodname    = foodname;
+            newItem.name        = foodname;
             newItem.daily       = true;
             newItem.daily_score = 0;
             newItem.carm        = true;
