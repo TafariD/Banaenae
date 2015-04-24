@@ -9,8 +9,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
 var schedule = require('node-schedule');
-//var cheerio  = require('cheerio');
-//var path = require('path');
 var configDB = require('./config/database.js');
 
 
@@ -34,7 +32,7 @@ app.use(passport.session()); // persistent login sessions
 var schedule = require('node-schedule');
 
 //daily scraper
-//require('./app/scrape.js')(schedule, mongoose, cheerio);
+require('./app/scrape.js')(schedule, mongoose);
 // routes
 require('./app/routes.js')(app, passport, mongoose, bodyParser); // load our routes and pass in our app and fully configured passport
 // launch ======================================================================

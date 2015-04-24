@@ -13,11 +13,6 @@ module.exports = function(app, passport) {
 
     // SCORES
     app.get('/scores', isLoggedIn, function(req, res) {
-        // TEST CODE - Passing JSON in plaintext to .ejs template
-       // var scores =    [{"name":"1% Milk","score":60},
-         //            {"name":"VM Scrambled Eggs","score":15},{"name":"Vanilla Soft Serve","score":-10}];
-        // TEST CODE
-        //getScores(); //<---- grabs data from mongoDB
         res.render('displayitems.ejs', { user: req.user});
     });
 
@@ -71,7 +66,7 @@ function getScores() {
 
 // Add data from addfood
 function addFood(req, res) {
-    var toUpdate ={
+    var toUpdate = {
                 name            : req.body.foodname,        
                 daily           : true,
                 daily_score     : parseInt(req.body.score, 10),

@@ -3,6 +3,9 @@
   "main": "server.js",
   "dependencies" : {
     "express" : "latest",           
+    "cheerio" : "latest",
+    "fs" : "latest",
+    "request" : "latest",
     "ejs" : "latest",  
     "mongoose" : "latest"           ,           
     "passport" : "latest",         
