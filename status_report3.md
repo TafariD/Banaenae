@@ -1,4 +1,4 @@
-#Status Report 2 - April 24th
+#Status Report 3 - April 24th
 
 ###What we have accomplished this week:
 * Created responsive Upvote buttons setting upvoted and downvoted attributes html tags
