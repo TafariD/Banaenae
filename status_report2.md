@@ -1,4 +1,4 @@
-#Status Report One - April 17th
+#Status Report 2 - April 17th
 
 ###What we have accomplished this week:
 * Migrated our html markup and all code to node.js platform using .ejs templates
