@@ -17,4 +17,6 @@
 ### Long term goals, putting things into perspective...
 * We have definitely passed all the hard implementation, lets get together and plan elavator pitch for the app
 
-
+#Comments by Ming
+* "Scraper re-written in JS with cheerio" --cool
+* Considering you have done the hard stuff, I say time to wind down, don't screw up what you have right now!
