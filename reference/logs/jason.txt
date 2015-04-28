@@ -24,3 +24,7 @@ Jason's log
     - Moved site onto Heroky ready / Node platform
     - migrated HTML to .ejs templates
     - Built google+ authentication
+4/22/15 - Jason and Tafari
+	- Built up buttons
+4/28/15 - Jason and Ben
+	- added features to buttons and built update route to update fooditems in DB

@@ -1,7 +1,8 @@
 // app/routes.js
 
 // Test code
-var foodItem            = require('../app/models/foodItem');
+var foodItem            = require('./models/foodItem');
+//var User                = require('./models/user');
 // Test code
 
 module.exports = function(app, passport) {
@@ -33,11 +34,24 @@ module.exports = function(app, passport) {
         }
     });
 
-    app.get('/scorestest', function(req,res) {
-        getScores();
-        res.send(200);
+    app.post('/votes', isLoggedIn, function(req, res) {
+        //recieve the array
+        if (req.body.upIds != undefined && req.body.downIds != undefined) {
+            upIds = JSON.parse(req.body.upIds);
+            downIds = JSON.parse(req.body.downIds);
+            console.log(upIds);
+            console.log(downIds);
+            for (i in upIds) {
+                up_score(upIds[i]);
+            }
+            for (i in downIds) {
+                down_score(downIds[i]);
+            }
+            res.send("added");
+        } else {
+            res.send("cannot");
+        }
     });
-
 
     // LOGOUT 
     app.get('/logout', function(req, res) {
@@ -87,4 +101,26 @@ function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
     res.redirect('/');
+}
+
+function up_score(foodId) {
+    foodItem.findOne({'_id' : foodId}, function(err, item){
+        if(err) {
+            console.log("you fucked up")
+        } else if(item){
+            item.daily_score   += 1;
+            item.save();
+        }
+    });
+}
+
+function down_score(foodId) {
+    foodItem.findOne({'_id' : foodId}, function(err, item){
+        if(err) {
+            console.log("you fucked up")
+        } else if(item){
+            item.daily_score   -= 1;
+            item.save();
+        }
+    });
 }
