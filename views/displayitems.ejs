@@ -42,7 +42,18 @@
             });
 
             $('span.glyphicon-menu-down').click(function(){
-                $(this).parent().parent().find("div.foodscore").find('p').append("<span>-1</span>");
+                /*
+                //$(this).parent().parent().find("div.foodscore").find('p').append("<span>-1</span>");
+                Tafari editted this code to mimick the above upvote function.
+                */
+                if($(this).attr("downvote") == 'false'){
+                    var div = $(this).parent().parent();
+                    $(this).attr("downvote", "true");
+                    div.find("span.glyphicon-menu-up").attr("upvote", "false");
+                    var p = div.find("div.foodscore").find('p');
+                    var num = parseInt(p.text(),10) - 1;
+                    console.log(num);
+                    p.text(num);
             });
         });
             $('#test_log').click(function(){
