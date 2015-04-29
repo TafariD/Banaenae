@@ -1,3 +1,4 @@
 *.swp
 auth.js
 Thumbds.db
+node_modules/
