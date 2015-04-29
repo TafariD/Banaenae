@@ -42,12 +42,12 @@ span[upvote=false] {
 	color:#ddd;
 }
 span[upvote=true] {
-	color:grey;
+	color:black;
 }
 span[downvote=false] {
 	color:#ddd;
 }
 span[downvote=true] {
-	color:grey;
+	color:black;
 }
 
