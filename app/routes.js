@@ -1,29 +1,79 @@
 // app/routes.js
 
-// Test code
 var foodItem            = require('./models/foodItem');
-//var User                = require('./models/user');
-// Test code
+var Users                = require('./models/user');
 
 module.exports = function(app, passport) {
+    /**
+     * FRONT END ROUTES 
+     **/
 
-    // INDEX
     app.get('/', function(req, res) {
         res.render('index.ejs'); // load the index.ejs file
     });
 
-    // SCORES
-    app.get('/scores', isLoggedIn, function(req, res) {
-        res.render('displayitems.ejs', { user: req.user});
-    });
-
-    app.get('/daily', function(req, res) {
+    app.get('/daily', isLoggedIn, function(req, res) {
         var query = foodItem.find({"daily" : true});
         query.select("id name daily_score").sort({"daily_score":-1}).exec(function(err, docs){
             res.send(docs);
         });
     });
 
+    /**
+     * BACK END ROUTES 
+     **/
+
+    // Scores 
+    app.get('/scores', isLoggedIn, function(req, res) {
+        res.render('displayitems.ejs', { user: req.user});
+    });
+
+    // User upvoted/downvoted items
+    app.get('/uservoted', function(req, res){
+        var query = Users.findOne({'google.id':req.user.google.id});
+        query.select("up_ids down_ids").exec(function(err, docs) {
+            console.log(docs);
+            res.send(JSON.stringify(docs));
+        });
+    });
+
+    //POST votes
+    app.post('/votes', isLoggedIn, function(req, res) {
+        //recieve the array
+        if (req.body.upIds != undefined && req.body.downIds != undefined) {
+            upIds = JSON.parse(req.body.upIds);
+            downIds = JSON.parse(req.body.downIds);
+            //console.log(upIds);
+            //console.log(downIds);
+            updateScores(req.user.google.id, upIds, downIds);
+            res.send("added");
+        } else {
+            res.send("cannot");
+        }
+    });
+
+    /**
+     * AUTHENTICATION
+     */
+
+    app.get('/logout', function(req, res) {
+        req.logout();
+        res.redirect('/');
+    });
+
+    // Google+ Authentication
+    app.get('/auth/google', passport.authenticate('google', { scope : ['profile'] }));
+
+    app.get('/auth/google/callback',
+            passport.authenticate('google', {
+                    successRedirect : '/scores',
+                    failureRedirect : '/' 
+            })
+    );
+
+    /**
+     * Testing 
+     */
     // For testing -  we can add foods via html post
     app.post('/addfood', function(req, res) {
         if (req.body.foodname == undefined || req.body.foodname == "" || 
@@ -33,50 +83,108 @@ module.exports = function(app, passport) {
             addFood(req, res);
         }
     });
-
-    app.post('/votes', isLoggedIn, function(req, res) {
-        //recieve the array
-        if (req.body.upIds != undefined && req.body.downIds != undefined) {
-            upIds = JSON.parse(req.body.upIds);
-            downIds = JSON.parse(req.body.downIds);
-            console.log(upIds);
-            console.log(downIds);
-            for (i in upIds) {
-                up_score(upIds[i]);
-            }
-            for (i in downIds) {
-                down_score(downIds[i]);
-            }
-            res.send("added");
-        } else {
-            res.send("cannot");
-        }
-    });
-
-    // LOGOUT 
-    app.get('/logout', function(req, res) {
-        req.logout();
-        res.redirect('/');
-    });
-
-    // GOOGLE ROUTES
-    // send to google to do the authentication
-    app.get('/auth/google', passport.authenticate('google', { scope : ['profile'] }));
-    // the callback after google has authenticated the user
-    app.get('/auth/google/callback',
-            passport.authenticate('google', {
-                    successRedirect : '/scores',
-                    failureRedirect : '/' 
-            })
-    );
 };
 
+/***************************** END OF ROUTES **********************************/
+
+/* Returns Array of all items available today */
 function getScores() {
     var query = foodItem.find({"daily" : true});
     query.select("id name daily_score").sort({"daily_score":-1}).exec(function(err, docs){
         return docs;
     });
 }
+
+/* route middleware to make sure a user is logged in */
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+        return next();
+    res.redirect('/');
+}
+
+/* string, strings[], string[]
+ * Updates scores in DB, with given IDs of upvoted and downvoted items.
+ */
+function updateScores(user_id, upIds, downIds) {
+    Users.findOne({'google.id' : user_id}, function(err, user){
+        if (err){
+            console.log("error in up_score");
+        } else if(user) {
+            var userUpVoted = user.up_ids;
+            var userDownVoted = user.down_ids;
+            upScores(userUpVoted, upIds);
+            downScores(userDownVoted, downIds);
+            user.down_ids = downIds;
+            user.up_ids = upIds;
+            user.save();
+        }
+    });
+}
+
+/* string, strings[]
+ * Updates scores in DB, with given IDs of upvoted items.
+ */
+function upScores(userUpVoted, upIds) {
+    for (i in upIds) {
+        // new food ID was seen ... add score
+        var newId = upIds[i];
+        //console.log(typeof(newId));
+        if(userUpVoted.indexOf(newId) == -1) {
+            plusOneScore(newId);
+        }
+    }
+    for (i in userUpVoted) {
+        // old food ID was not seen ... minus score
+        var oldId = userUpVoted[i];
+        if(upIds.indexOf(oldId) == -1) {
+            minusOneScore(oldId);
+        }
+    }
+}
+
+/* string, strings[]
+ * Updates scores in DB, with given IDs of downvoted items. 
+ */
+function downScores(userDownVoted, downIds){
+    for (i in downIds) {
+        // new food ID was seen ... add score
+        var newId = downIds[i];
+        console.log(typeof(newId));
+        if(userDownVoted.indexOf(newId) == -1) {
+            minusOneScore(newId);
+        }
+    }
+    for (i in userDownVoted) {
+        // old food ID was not seen ... minus score
+        var oldId = userDownVoted[i];
+        if(downIds.indexOf(oldId) == -1) {
+            plusOneScore(oldId);
+        }
+    }
+}
+
+function plusOneScore(foodId) {
+    foodItem.findOne({_id : foodId}, function(err, item){
+        if(err) {
+            console.log("you fucked up")
+        } else if(item){
+            item.daily_score   += 1;
+            item.save();
+        }
+    });
+}
+function minusOneScore(foodId){
+    foodItem.findOne({'_id' : foodId}, function(err, item){
+        if(err) {
+            console.log("you fucked up")
+        } else if(item){
+            item.daily_score   -= 1;
+            item.save();
+        }
+    });
+}
+
+/*** Testing functions *****/
 
 // Add data from addfood
 function addFood(req, res) {
@@ -93,34 +201,5 @@ function addFood(req, res) {
         console.log("in update");
         if (err) console.log("error in update");
         res.send("{'status':'success!'}");
-    });
-}
-
-// route middleware to make sure a user is logged in
-function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated())
-        return next();
-    res.redirect('/');
-}
-
-function up_score(foodId) {
-    foodItem.findOne({'_id' : foodId}, function(err, item){
-        if(err) {
-            console.log("you fucked up")
-        } else if(item){
-            item.daily_score   += 1;
-            item.save();
-        }
-    });
-}
-
-function down_score(foodId) {
-    foodItem.findOne({'_id' : foodId}, function(err, item){
-        if(err) {
-            console.log("you fucked up")
-        } else if(item){
-            item.daily_score   -= 1;
-            item.save();
-        }
     });
 }

@@ -1,5 +1,6 @@
 // config/passport.js
-// Acknowledgements : Code modified from Chris Sevilleja's on Scotch.io
+// Acknowledgements : Code modified from Chris Sevilleja's tutorial on
+// Scotch.io 'Easy Node Authentication' tutorial
 
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var User            = require('../app/models/user');
@@ -43,6 +44,8 @@ module.exports = function(passport) {
                     newUser.google.name  = profile.displayName;
                     newUser.google.id    = profile.id
                     newUser.score        = 0;
+                    newUser.up_ids       = [];
+                    newUser.down_ids     = [];
                     // save the user
                     newUser.save(function(err) {
                         if (err)

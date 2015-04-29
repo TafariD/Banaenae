@@ -11,10 +11,5 @@ var userSchema = mongoose.Schema({
         id           : String,
     }
 });
-// methods ======================
-// generating a hash
-// userSchema.methods.generateHash = function(password) {
-//     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-// };
-// create the model for users and expose it to our app
+
 module.exports = mongoose.model('User', userSchema);
