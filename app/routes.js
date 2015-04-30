@@ -12,7 +12,7 @@ module.exports = function(app, passport) {
         res.render('index.ejs'); // load the index.ejs file
     });
 
-    app.get('/daily', isLoggedIn, function(req, res) {
+    app.get('/daily_data', isLoggedIn, function(req, res) {
         var query = foodItem.find({"daily" : true});
         query.select("id name daily_score").sort({"daily_score":-1}).exec(function(err, docs){
             res.send(docs);
@@ -20,7 +20,7 @@ module.exports = function(app, passport) {
     });
 
 
-    app.get('/alltime', isLoggedIn, function(req, res) {
+    app.get('/alltime_data', isLoggedIn, function(req, res) {
         var query = foodItem.find({});
         query.select("id name alltime_score daily").sort({"alltime_score":-1}).exec(function(err, docs){
             res.send(docs);
@@ -34,11 +34,11 @@ module.exports = function(app, passport) {
      **/
 
     // Scores 
-    app.get('/scores', isLoggedIn, function(req, res) {
+    app.get('/daily', isLoggedIn, function(req, res) {
         res.render('displayitems.ejs', { user: req.user});
     });
 
-    app.get('/alltime_scores', isLoggedIn, function(req, res) {
+    app.get('/alltime', isLoggedIn, function(req, res) {
         res.render('alltimeitems.ejs', { user: req.user});
     });
     // User upvoted/downvoted items
@@ -79,7 +79,7 @@ module.exports = function(app, passport) {
 
     app.get('/auth/google/callback',
             passport.authenticate('google', {
-                    successRedirect : '/scores',
+                    successRedirect : '/daily',
                     failureRedirect : '/' 
             })
     );
