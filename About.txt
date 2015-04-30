@@ -1,0 +1,8 @@
+About
+
+
+The problem with dining options at universities in the U.S. is that they offer the same meal rotations over and over again; students have to eat the same kinds of meals, whether they like them or not, on a pretty consistent basis.  
+
+That's where Banaenae comes in; we store a university's food offerings from publicly accessed menus on their website.  We then allow users (you the students!) to vote on said offerings such that the university as a community can see what its members love to eat!  The dining staff can use this information to provide meals that will be more satisfying for the student body, making everybody happy.
+
+Our product is currently being tested on Tufts University's dining menus, but we hope to expand this service to other schools!
