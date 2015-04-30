@@ -16,8 +16,8 @@ function init(render, url){
             });
         });
         initRefreshButton();
-        $(window).undload(function(){alert("WHY U EXIT BRO?"); console.log("haha i left");});
-        $(window).on("beforeunload",function(){alert("u leave me...");});
+        //$(window).undload(function(){alert("WHY U EXIT BRO?"); console.log("haha i left");});
+        //$(window).on("beforeunload",function(){alert("u leave me...");});
 
     });
 }
@@ -124,7 +124,7 @@ function renderAlltimeItem(food_obj, userinfo){
                         "<span class='glyphicon glyphicon-menu-up'  upvote='"+upvote+"' id='"+food_obj._id +"'></span>"      +
                     "</div>"                                                                                            +
                     "<div class='col-xs-12 foodscore'>"                                                                 +
-                        "<p class='foodscore' daily='"+daily+"' id='"+food_obj._id +"'>" + food_obj.daily_score.toString() + "</p>"       +
+                        "<p class='foodscore' daily='"+daily+"' id='"+food_obj._id +"'>" + food_obj.alltime_score.toString() + "</p>"       +
                     "</div>"                                                                                            +
                     "<div class='col-xs-12'>"                                                                           + 
                         "<span class='glyphicon glyphicon-menu-down' downvote='"+downvote+"' id='"+food_obj._id +"'></span>"   + 
