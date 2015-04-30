@@ -6,16 +6,16 @@ var cheerio = require('cheerio');
 var foodItem = require('./models/foodItem')
 
 module.exports = function(schedule, mongoose) {
-    //var rule = new schedule.RecurrenceRule();
-    // var j = schedule.scheduleJob(rule, function(){
-    //     grabDailyItems();
-    // });
-    // var date = new Date(2015, 3, 24, 1, 6, 46);
-    // console.log(date);
-    // var j = schedule.scheduleJob(date, function(){
-    //     console.log('The world is going to end today.');
-    //     grabDailyItems();
-    // });
+    var rule = new schedule.RecurrenceRule();
+    var j = schedule.scheduleJob(rule, function(){
+        grabDailyItems();
+    });
+    var date = new Date(2015, 3, 24, 1, 6, 46);
+    console.log(date);
+    var j = schedule.scheduleJob(date, function(){
+        console.log('The world is going to end today.');
+        grabDailyItems();
+    });
 }
 // Returns a list of strings of daily items
 function grabDailyItems() {
@@ -51,6 +51,7 @@ function itemToDB(foodname) {
             newItem.name        = foodname;
             newItem.daily       = true;
             newItem.daily_score = 0;
+            newItem.alltime_score = 0;
             newItem.carm        = true;
             newItem.dewick      = true;
             newItem.stats.freq  = 1;

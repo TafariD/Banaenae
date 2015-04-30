@@ -8,8 +8,10 @@ function init(render, url){
         //Render List
         $.getJSON(userVotedURL, function(userinfo){
             $.getJSON(url, function(list){
+                console.log(list);
                 /***** RENDER EACH FOOD ITEM ********/
                 $.each(list, function (i, food_obj) {
+                    console.log(food_obj);
                     render(food_obj, userinfo);
                 });
                 initButtons();
