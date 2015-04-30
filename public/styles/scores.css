@@ -51,3 +51,6 @@ span[downvote=true] {
 	color:black;
 }
 
+p[daily=true]{
+	font-weight: bold;
+}

@@ -22,7 +22,7 @@ module.exports = function(app, passport) {
 
     app.get('/alltime', isLoggedIn, function(req, res) {
         var query = foodItem.find({});
-        query.select("id name alltime_score").sort({"alltime_score":-1}).exec(function(err, docs){
+        query.select("id name alltime_score daily").sort({"alltime_score":-1}).exec(function(err, docs){
             res.send(docs);
         });
     });
@@ -38,6 +38,9 @@ module.exports = function(app, passport) {
         res.render('displayitems.ejs', { user: req.user});
     });
 
+    app.get('/alltime_scores', isLoggedIn, function(req, res) {
+        res.render('alltimeitems.ejs', { user: req.user});
+    });
     // User upvoted/downvoted items
     app.get('/uservoted', function(req, res){
         var query = Users.findOne({'google.id':req.user.google.id});
