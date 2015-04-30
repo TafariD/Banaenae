@@ -21,11 +21,12 @@ module.exports = function(schedule, mongoose) {
 function grabDailyItems() {
     var url = 'http://menus.tufts.edu/foodpro/shortmenu.asp?sName=Tufts+Dining&locationNum=11&locationName=Dewick+MacPhie+Dining+Center&naFlag=1';
     request(url, function(error, response, html){
+        console.log("scraping");
         if (!error) {
             var $ = cheerio.load(html);
             var items = $(".shortmenurecipes").find("a");
             $(items).each(function(){
-                console.log($(this).text())
+                //console.log($(this).text())
                 itemToDB($(this).text());
             });
         } else {

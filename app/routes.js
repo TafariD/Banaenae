@@ -131,6 +131,7 @@ function upScores(userUpVoted, upIds) {
         //console.log(typeof(newId));
         if(userUpVoted.indexOf(newId) == -1) {
             plusOneScore(newId);
+            //user score +1
         }
     }
     for (i in userUpVoted) {
@@ -138,6 +139,7 @@ function upScores(userUpVoted, upIds) {
         var oldId = userUpVoted[i];
         if(upIds.indexOf(oldId) == -1) {
             minusOneScore(oldId);
+            //user score -1
         }
     }
 }
@@ -152,6 +154,7 @@ function downScores(userDownVoted, downIds){
         console.log(typeof(newId));
         if(userDownVoted.indexOf(newId) == -1) {
             minusOneScore(newId);
+            //user score +1
         }
     }
     for (i in userDownVoted) {
@@ -159,6 +162,8 @@ function downScores(userDownVoted, downIds){
         var oldId = userDownVoted[i];
         if(downIds.indexOf(oldId) == -1) {
             plusOneScore(oldId);
+            //user score -1
+
         }
     }
 }
