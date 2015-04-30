@@ -92,21 +92,21 @@ function renderDailyItem(food_obj, userinfo){
     var upvote      = (upIds.indexOf(food_obj._id)  != -1).toString(); // if user has already voted
     var downvote    = (downIds.indexOf(food_obj._id)!= -1).toString(); // if user has already voted
     $('#data').append(
-        "<div class='row food-item-box'>"                                                                               +
-            "<div class='col-xs-8 fooditem' >"                                                                          + 
-                "<p class='fooditem' id='"+food_obj.id+"'>" + food_obj.name + "</p> "                                   +
-            " </div>"                                                                                                   +
-            "<div class='col-xs-4 scores-buttons'>"                                                                     +
-                    "<div class='col-xs-12'>"                                                                           +
+        "<div class='row food-item-box'>"                                                                                    +
+            "<div class='col-xs-8 fooditem' >"                                                                               + 
+                "<p class='fooditem' id='"+food_obj.id+"'>" + food_obj.name + "</p> "                                        +
+            " </div>"                                                                                                        +
+            "<div class='col-xs-4 scores-buttons'>"                                                                          +
+                    "<div class='col-xs-12'>"                                                                                +
                         "<span class='glyphicon glyphicon-menu-up'  upvote='"+upvote+"' id='"+food_obj._id +"'></span>"      +
-                    "</div>"                                                                                            +
-                    "<div class='col-xs-12 foodscore'>"                                                                 +
-                        "<p class='foodscore' id='"+food_obj._id +"'>" + food_obj.daily_score.toString() + "</p>"       +
-                    "</div>"                                                                                            +
-                    "<div class='col-xs-12'>"                                                                           + 
-                        "<span class='glyphicon glyphicon-menu-down' downvote='"+downvote+"' id='"+food_obj._id +"'></span>"   + 
-                    "</div> "                                                                                           +
-                " </div>"                                                                                               +
+                    "</div>"                                                                                                 +
+                    "<div class='col-xs-12 foodscore'>"                                                                      +
+                        "<p class='foodscore' id='"+food_obj._id +"'>" + food_obj.daily_score.toString() + "</p>"            +
+                    "</div>"                                                                                                 +
+                    "<div class='col-xs-12'>"                                                                                + 
+                        "<span class='glyphicon glyphicon-menu-down' downvote='"+downvote+"' id='"+food_obj._id +"'></span>" + 
+                    "</div> "                                                                                                +
+                " </div>"                                                                                                    +
             "</div>");
 }
 
@@ -120,20 +120,23 @@ function renderAlltimeItem(food_obj, userinfo){
     if (food_obj.daily) 
         daily_glyph = "<span class= 'glyphicon glyphicon-glass'></span>";
     $('#data').append(
-        "<div class='row food-item-box'>"                                                                               +
-            "<div class='col-xs-8 fooditem' >"                                                                          + 
-                "<p class='fooditem' daily='"+daily+"' id='"+food_obj.id+"'>" + daily_glyph + " " + food_obj.name + "</p> "                                   +
-            " </div>"                                                                                                   +
-            "<div class='col-xs-4 scores-buttons'>"                                                                     +
-                    "<div class='col-xs-12'>"                                                                           +
-                        "<span class='glyphicon glyphicon-menu-up'  upvote='"+upvote+"' id='"+food_obj._id +"'></span>"      +
-                    "</div>"                                                                                            +
-                    "<div class='col-xs-12 foodscore'>"                                                                 +
-                        "<p class='foodscore' id='"+food_obj._id +"'>" + food_obj.alltime_score.toString() + "</p>"       +
-                    "</div>"                                                                                            +
-                    "<div class='col-xs-12'>"                                                                           + 
-                        "<span class='glyphicon glyphicon-menu-down' downvote='"+downvote+"' id='"+food_obj._id +"'></span>"   + 
-                    "</div> "                                                                                           +
-                " </div>"                                                                                               +
+        "<div class='row food-item-box'>"                                                                                     +
+            "<div class='col-xs-8 fooditem' >"                                                                                +
+                "<div class='col-xs-1'> " + daily_glyph + "</div>"                                                            +
+                "<div class='col-xs-11'>"                                                                                     +                                                                 
+                "<p class='fooditem' daily='"+daily+"' id='"+food_obj._id+"'>"  + food_obj.name + "</p> "                     +
+                "</div>"                                                                                                      +
+            " </div>"                                                                                                         +
+            "<div class='col-xs-4 scores-buttons'>"                                                                           +
+                    "<div class='col-xs-12'>"                                                                                 +
+                        "<span class='glyphicon glyphicon-menu-up'  upvote='"+upvote+"' id='"+food_obj._id +"'></span>"       +
+                    "</div>"                                                                                                  +
+                    "<div class='col-xs-12 foodscore'>"                                                                       +
+                        "<p class='foodscore' id='"+food_obj._id +"'>" + food_obj.alltime_score.toString() + "</p>"           +
+                    "</div>"                                                                                                  +
+                    "<div class='col-xs-12'>"                                                                                 + 
+                        "<span class='glyphicon glyphicon-menu-down' downvote='"+downvote+"' id='"+food_obj._id +"'></span>"  + 
+                    "</div> "                                                                                                 +
+                " </div>"                                                                                                     +
             "</div>");
 }
