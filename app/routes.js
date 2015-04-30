@@ -125,28 +125,37 @@ function updateScores(user_id, upIds, downIds) {
         } else if(user) {
             var userUpVoted = user.up_ids;
             var userDownVoted = user.down_ids;
-            upScores(userUpVoted, upIds);
-            downScores(userDownVoted, downIds);
+            upScores(user_id, userUpVoted, upIds);
+            downScores(user_id, userDownVoted, downIds);
             user.down_ids = downIds;
             user.up_ids = upIds;
-            user.save();
+            user.save();//do this for upscores
         }
     });
 }
 
-/* string, strings[]
+/* string,string,strings[]
  * Updates scores in DB, with given IDs of upvoted items.
  */
-function upScores(userUpVoted, upIds) {
+function upScores(user_id,userUpVoted, upIds) {
     for (i in upIds) {
         // new food ID was seen ... add score
         var newId = upIds[i];
         //console.log(typeof(newId));
         if(userUpVoted.indexOf(newId) == -1) {
             plusOneScore(newId);
-            //user score +1
         }
-    }
+
+        Users.findOne({'google.id' : user_id}, function(err, user){
+            if (err){
+                console.log("error in up_score");
+            } else if(user) {
+                var userUpVoted = user.up_ids;
+                user.up_ids = upIds;
+                user.save();
+        }
+    });
+            //user score +1
     for (i in userUpVoted) {
         // old food ID was not seen ... minus score
         var oldId = userUpVoted[i];
@@ -157,25 +166,34 @@ function upScores(userUpVoted, upIds) {
     }
 }
 
-/* string, strings[]
+/* string, string, strings[]
  * Updates scores in DB, with given IDs of downvoted items. 
  */
-function downScores(userDownVoted, downIds){
+function downScores(user_id, userDownVoted, downIds){
     for (i in downIds) {
         // new food ID was seen ... add score
         var newId = downIds[i];
         console.log(typeof(newId));
         if(userDownVoted.indexOf(newId) == -1) {
             minusOneScore(newId);
-            //user score +1
+            //user score +1 and function taht does this
         }
     }
+    Users.findOne({'google.id' : user_id}, function(err, user){
+        if (err){
+            console.log("error in up_score");
+        } else if(user) {
+            var userDownVoted = user.down_ids;
+            user.down_ids = downIds;
+            user.save();//do this for upscores
+        }
+    });
     for (i in userDownVoted) {
         // old food ID was not seen ... minus score
         var oldId = userDownVoted[i];
         if(downIds.indexOf(oldId) == -1) {
             plusOneScore(oldId);
-            //user score -1
+            //user score -1-implemenet a function taht does this
 
         }
     }
