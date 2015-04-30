@@ -12,27 +12,6 @@ module.exports = function(app, passport) {
         res.render('index.ejs'); // load the index.ejs file
     });
 
-    app.get('/daily_data', isLoggedIn, function(req, res) {
-        var query = foodItem.find({"daily" : true});
-        query.select("id name daily_score").sort({"daily_score":-1}).exec(function(err, docs){
-            res.send(docs);
-        });
-    });
-
-
-    app.get('/alltime_data', isLoggedIn, function(req, res) {
-        var query = foodItem.find({});
-        query.select("id name alltime_score daily").sort({"alltime_score":-1}).exec(function(err, docs){
-            res.send(docs);
-        });
-    });
-
-
-
-    /**
-     * BACK END ROUTES 
-     **/
-
     // Scores 
     app.get('/daily', isLoggedIn, function(req, res) {
         res.render('displayitems.ejs', { user: req.user});
@@ -41,6 +20,25 @@ module.exports = function(app, passport) {
     app.get('/alltime', isLoggedIn, function(req, res) {
         res.render('alltimeitems.ejs', { user: req.user});
     });
+
+    /**
+     * BACK END ROUTES 
+     **/
+
+    app.get('/daily_data', isLoggedIn, function(req, res) {
+        var query = foodItem.find({"daily" : true});
+        query.select("id name daily_score").sort({"daily_score":-1}).exec(function(err, docs){
+            res.send(docs);
+        });
+    });
+
+    app.get('/alltime_data', isLoggedIn, function(req, res) {
+        var query = foodItem.find({});
+        query.select("id name alltime_score daily").sort({"alltime_score":-1}).exec(function(err, docs){
+            res.send(docs);
+        });
+    });
+
     // User upvoted/downvoted items
     app.get('/uservoted', function(req, res){
         var query = Users.findOne({'google.id':req.user.google.id});
@@ -134,7 +132,7 @@ function updateScores(user_id, upIds, downIds) {
     });
 }
 
-/* string,string,strings[]
+/* string,strings[],strings[]
  * Updates scores in DB, with given IDs of upvoted items.
  */
 function upScores(user_id,userUpVoted, upIds) {
@@ -145,17 +143,7 @@ function upScores(user_id,userUpVoted, upIds) {
         if(userUpVoted.indexOf(newId) == -1) {
             plusOneScore(newId);
         }
-
-        Users.findOne({'google.id' : user_id}, function(err, user){
-            if (err){
-                console.log("error in up_score");
-            } else if(user) {
-                var userUpVoted = user.up_ids;
-                user.up_ids = upIds;
-                user.save();
-        }
-    });
-            //user score +1
+    }
     for (i in userUpVoted) {
         // old food ID was not seen ... minus score
         var oldId = userUpVoted[i];
@@ -166,7 +154,7 @@ function upScores(user_id,userUpVoted, upIds) {
     }
 }
 
-/* string, string, strings[]
+/* string, strings[], strings[]
  * Updates scores in DB, with given IDs of downvoted items. 
  */
 function downScores(user_id, userDownVoted, downIds){
@@ -209,6 +197,7 @@ function plusOneScore(foodId) {
         }
     });
 }
+
 function minusOneScore(foodId){
     foodItem.findOne({'_id' : foodId}, function(err, item){
         if(err) {

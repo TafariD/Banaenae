@@ -18,8 +18,8 @@ function init(render, url){
             });
         });
         initRefreshButton();
-        //$(window).undload(function(){alert("WHY U EXIT BRO?"); console.log("haha i left");});
-        //$(window).on("beforeunload",function(){alert("u leave me...");});
+        //$(window).on("pagehide",postVotes());
+        //$(window).on("beforeunload",postVotes());
 
     });
 }
@@ -47,9 +47,9 @@ function postVotes(){
 
 function initRefreshButton(){
     /******** AGGREGATE UPPED and DOWNED ITEMS ******/
-    $('.refresh').click(function(){
-        postVotes();
-    });
+    // $('.refresh').click(function(){
+    //     postVotes();
+    // });
 }
 
 /**
