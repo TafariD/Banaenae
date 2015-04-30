@@ -1,41 +1,54 @@
 // /public/scripts/scores.js
-// Clientside JS for daily scores page
+// Clientside JS for scores page
 
-var dailyItemsURL = "daily"
 var userVotedURL  = "uservoted"
+
+function init(render, url){
     $(document).ready(function(){
         //Render List
         $.getJSON(userVotedURL, function(userinfo){
-            $.getJSON(dailyItemsURL, function(list){
+            $.getJSON(url, function(list){
                 /***** RENDER EACH FOOD ITEM ********/
                 $.each(list, function (i, food_obj) {
-                    renderItem(food_obj, userinfo);
+                    render(food_obj, userinfo);
                 });
                 initButtons();
             });
         });
-        /******** AGGREGATE UPPED and DOWNED ITEMS ******/
-        $('#test_log').click(function(){
-            var upIds   = [];
-            var downIds = [];
-            $(document).find("span[upvote='true']").each(function(){ upIds.push(this.id); });
-            $(document).find("span[downvote='true']").each(function(){ downIds.push(this.id); });
-            console.log(upIds);
-            console.log(downIds);
-            $.ajax({
-                url: "votes",
-                type: "POST",
-                headers: {
-                    "Content-type" : "application/x-www-form-urlencoded"
-                },
-                data: {
-                    upIds   : JSON.stringify(upIds),
-                    downIds :JSON.stringify(downIds)
-                },
-                dataType:"json"
-            });
-        });
+        initRefreshButton();
+        $(window).undload(function(){alert("WHY U EXIT BRO?"); console.log("haha i left");});
+        $(window).on("beforeunload",function(){alert("u leave me...");});
+
     });
+}
+
+function postVotes(){
+    var upIds   = [];
+    var downIds = [];
+    $(document).find("span[upvote='true']").each(function(){ upIds.push(this.id); });
+    $(document).find("span[downvote='true']").each(function(){ downIds.push(this.id); });
+    console.log(upIds);
+    console.log(downIds);
+    $.ajax({
+        url: "votes",
+        type: "POST",
+        headers: {
+            "Content-type" : "application/x-www-form-urlencoded"
+        },
+        data: {
+            upIds   : JSON.stringify(upIds),
+            downIds :JSON.stringify(downIds)
+        },
+        dataType:"json"
+    });   
+}
+
+function initRefreshButton(){
+    /******** AGGREGATE UPPED and DOWNED ITEMS ******/
+    $('.refresh').click(function(){
+        postVotes();
+    });
+}
 
 /**
  *  Buttons set attributes of upvote and downvote icons, and change text val in DOM
@@ -51,6 +64,7 @@ function initButtons(){
             }
             downvote.attr("downvote", "false");
             p.text(parseInt(p.text(),10) + 1);
+            postVotes();
         }
     });
     $('span.glyphicon-menu-down').click(function(){
@@ -62,14 +76,15 @@ function initButtons(){
             }
             upvote.attr("upvote", "false");
             p.text(parseInt(p.text(),10) - 1);
+            postVotes();
         }
     });
 }
 
 /* object, object
- * Renders div of given food item and given user information
+ * Renders div of given daily food item and given user information
  */
-function renderItem(food_obj, userinfo){
+function renderDailyItem(food_obj, userinfo){
     var upIds       = userinfo.up_ids;
     var downIds     = userinfo.down_ids;
     var upvote      = (upIds.indexOf(food_obj._id)  != -1).toString(); // if user has already voted
