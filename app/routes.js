@@ -19,12 +19,16 @@ module.exports = function(app, passport) {
         });
     });
 
-    app.get('/alltime', isLoggedIn, function(req, res){
-        var query = foodItem.find({});
-        query.select("id name alltime_score").sort({"alltime_score":-1}).exec(function(err, docs){
+/*
+    app.get('/daily', isLoggedIn, function(req, res) {
+        var query = foodItem.find({"daily" : true});
+        query.select("id name daily_score").sort({"daily_score":-1}).exec(function(err, docs){
             res.send(docs);
         });
     });
+*/
+
+
     /**
      * BACK END ROUTES 
      **/
