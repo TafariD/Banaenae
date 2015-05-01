@@ -1,6 +1,11 @@
 {
-  "name": "node-authentication",
+  "version": "0.0.1",
+  "name": "banaenae",
+  "description":"Banaenae, voting on tufts dining",
   "main": "server.js",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies" : {
     "express" : "latest",
     "express-session":"latest",        
