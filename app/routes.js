@@ -121,10 +121,12 @@ function updateScores(user_id, upIds, downIds) {
         if (err){
             console.log("error in up_score");
         } else if(user) {
+            var deltaScore = 0;
             var userUpVoted = user.up_ids;
             var userDownVoted = user.down_ids;
-            upScores(user_id, userUpVoted, upIds);
-            downScores(user_id, userDownVoted, downIds);
+            deltaScore += upScores(userUpVoted, upIds);
+            deltaScore += downScores(userDownVoted, downIds);
+            user.score += deltaScore;
             user.down_ids = downIds;
             user.up_ids = upIds;
             user.save();//do this for upscores
@@ -132,16 +134,18 @@ function updateScores(user_id, upIds, downIds) {
     });
 }
 
-/* string,strings[],strings[]
+/* strings[],strings[]
  * Updates scores in DB, with given IDs of upvoted items.
  */
-function upScores(user_id,userUpVoted, upIds) {
+function upScores(userUpVoted, upIds) {
+    var deltaScore  = 0;
     for (i in upIds) {
         // new food ID was seen ... add score
         var newId = upIds[i];
         //console.log(typeof(newId));
         if(userUpVoted.indexOf(newId) == -1) {
             plusOneScore(newId);
+            deltaScore += 1;
         }
     }
     for (i in userUpVoted) {
@@ -149,50 +153,42 @@ function upScores(user_id,userUpVoted, upIds) {
         var oldId = userUpVoted[i];
         if(upIds.indexOf(oldId) == -1) {
             minusOneScore(oldId);
-            //user score -1
+            deltaScore -= 1;
         }
     }
+    return deltaScore;
 }
 
 /* string, strings[], strings[]
  * Updates scores in DB, with given IDs of downvoted items. 
  */
-function downScores(user_id, userDownVoted, downIds){
+function downScores(userDownVoted, downIds){
+    var deltaScore = 0;
     for (i in downIds) {
         // new food ID was seen ... add score
         var newId = downIds[i];
-        console.log(typeof(newId));
         if(userDownVoted.indexOf(newId) == -1) {
             minusOneScore(newId);
-            //user score +1 and function taht does this
+            deltaScore += 1;
         }
     }
-    Users.findOne({'google.id' : user_id}, function(err, user){
-        if (err){
-            console.log("error in up_score");
-        } else if(user) {
-            var userDownVoted = user.down_ids;
-            user.down_ids = downIds;
-            user.save();//do this for upscores
-        }
-    });
     for (i in userDownVoted) {
         // old food ID was not seen ... minus score
         var oldId = userDownVoted[i];
         if(downIds.indexOf(oldId) == -1) {
             plusOneScore(oldId);
-            //user score -1-implemenet a function taht does this
-
+            deltaScore -= 1;
         }
     }
+    return deltaScore;
 }
 
 function plusOneScore(foodId) {
     foodItem.findOne({_id : foodId}, function(err, item){
         if(err) {
-            console.log("you fucked up")
         } else if(item){
             item.daily_score   += 1;
+            item.alltime_score += 1;
             item.save();
         }
     });
@@ -201,9 +197,9 @@ function plusOneScore(foodId) {
 function minusOneScore(foodId){
     foodItem.findOne({'_id' : foodId}, function(err, item){
         if(err) {
-            console.log("you fucked up")
         } else if(item){
             item.daily_score   -= 1;
+            item.alltime_score -= 1;
             item.save();
         }
     });

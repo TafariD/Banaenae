@@ -6,23 +6,31 @@ var userVotedURL  = "uservoted"
 function init(render, url){
     $(document).ready(function(){
         //Render List
+        if(navigator.geolocation){
+            console.log("getting location")
+            navigator.geolocation.getCurrentPosition(function(){
+                
+            })
+        } else {
+            alert("Sorry! You must be near tufts to use our App");
+            window.location="/logout";
+        }
         $.getJSON(userVotedURL, function(userinfo){
             $.getJSON(url, function(list){
-                console.log(list);
                 /***** RENDER EACH FOOD ITEM ********/
                 $.each(list, function (i, food_obj) {
-                    console.log(food_obj);
                     render(food_obj, userinfo);
                 });
                 initButtons();
             });
         });
-        initRefreshButton();
+        //initRefreshButton();
         //$(window).on("pagehide",postVotes());
         //$(window).on("beforeunload",postVotes());
 
     });
 }
+
 
 function postVotes(){
     var upIds   = [];
@@ -45,18 +53,19 @@ function postVotes(){
     });   
 }
 
-function initRefreshButton(){
-    /******** AGGREGATE UPPED and DOWNED ITEMS ******/
-    // $('.refresh').click(function(){
-    //     postVotes();
-    // });
-}
+// function initRefreshButton(){
+//     ******* AGGREGATE UPPED and DOWNED ITEMS *****
+//     // $('.refresh').click(function(){
+//     //     postVotes();
+//     // });
+// }
 
 /**
  *  Buttons set attributes of upvote and downvote icons, and change text val in DOM
  **/
 function initButtons(){
     /***** UPVOTE AND DOWNVOTE ITEMS ******/
+    console.log("buttons please");
     $("span.glyphicon-menu-up").click(function(){
         if($(this).attr("upvote") == 'false'){
             var p           = $(this).parent().parent().find("div.foodscore").find('p');
@@ -70,6 +79,7 @@ function initButtons(){
         }
     });
     $('span.glyphicon-menu-down').click(function(){
+        console.log("downed");
         if($(this).attr("downvote") == 'false'){
             var p       = $(this).parent().parent().find("div.foodscore").find('p');
             var upvote  = $(this).parent().parent().find("span.glyphicon-menu-up");
@@ -93,10 +103,10 @@ function renderDailyItem(food_obj, userinfo){
     var downvote    = (downIds.indexOf(food_obj._id)!= -1).toString(); // if user has already voted
     $('#data').append(
         "<div class='row food-item-box'>"                                                                                    +
-            "<div class='col-xs-8 fooditem' >"                                                                               + 
-                "<p class='fooditem' id='"+food_obj.id+"'>" + food_obj.name + "</p> "                                        +
+            "<div class='col-xs-10 fooditem' >"                                                                               + 
+                "<div class='col-xs-1'></div><div class='col-xs-11'><p class='fooditem' id='"+food_obj.id+"'>" + food_obj.name + "</p></div>"                                        +
             " </div>"                                                                                                        +
-            "<div class='col-xs-4 scores-buttons'>"                                                                          +
+            "<div class='col-xs-2 scores-buttons'>"                                                                          +
                     "<div class='col-xs-12'>"                                                                                +
                         "<span class='glyphicon glyphicon-menu-up'  upvote='"+upvote+"' id='"+food_obj._id +"'></span>"      +
                     "</div>"                                                                                                 +
@@ -121,13 +131,10 @@ function renderAlltimeItem(food_obj, userinfo){
         daily_glyph = "<span class= 'glyphicon glyphicon-glass'></span>";
     $('#data').append(
         "<div class='row food-item-box'>"                                                                                     +
-            "<div class='col-xs-8 fooditem' >"                                                                                +
-                "<div class='col-xs-1'> " + daily_glyph + "</div>"                                                            +
-                "<div class='col-xs-11'>"                                                                                     +                                                                 
-                "<p class='fooditem' daily='"+daily+"' id='"+food_obj._id+"'>"  + food_obj.name + "</p> "                     +
-                "</div>"                                                                                                      +
+            "<div class='col-xs-10 fooditem' >"                                                                                +                                                            
+                "<p class='fooditem' daily='"+daily+"' id='"+food_obj._id+"'>" +daily_glyph +" "+ food_obj.name +"</p> "                     +
             " </div>"                                                                                                         +
-            "<div class='col-xs-4 scores-buttons'>"                                                                           +
+            "<div class='col-xs-2 scores-buttons'>"                                                                           +
                     "<div class='col-xs-12'>"                                                                                 +
                         "<span class='glyphicon glyphicon-menu-up'  upvote='"+upvote+"' id='"+food_obj._id +"'></span>"       +
                     "</div>"                                                                                                  +

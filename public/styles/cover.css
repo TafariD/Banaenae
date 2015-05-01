@@ -26,10 +26,12 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: #333;
+  background-color: #ff7869;
+  //background-color: #333;
 }
 body {
-  color: #fd9d7d;
+  //color: #ff8c62;
+  color:white;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
@@ -40,8 +42,8 @@ body {
   width: 100%;
   height: 100%; /* For at least Firefox */
   min-height: 100%;
-  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
-          box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+  /*-webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+          box-shadow: inset 0 0 100px rgba(0,0,0,.5);*/
 }
 .site-wrapper-inner {
   display: table-cell;
@@ -116,6 +118,21 @@ body {
   font-weight: bold;
 }
 
+.cover-item{
+  padding-top: 10%;
+  height:100%;
+}
+
+.glyphicon-refresh{
+  -webkit-animation:spin 4s linear infinite;
+  -moz-animation:spin 4s linear infinite;
+  animation:spin 4s linear infinite;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
 
 /*
  * Footer
@@ -125,6 +142,7 @@ body {
   color: #999; /* IE8 proofing */
   color: rgba(255,255,255,.5);
 }
+
 
 
 /*
